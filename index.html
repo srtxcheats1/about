@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0f0d">
+<title>Samrat Subedi | SRT X CHEATS</title>
+<meta name="description" content="Samrat Subedi — 16 y/o solo developer and Class 10 student from Nepal, building SRT X CHEATS entirely from a phone. SRT X CHEATS Nepal — most popular and trusted panel seller: www.srtxcheats.com">
+<meta property="og:title" content="Samrat Subedi | SRT X CHEATS">
+<meta property="og:description" content="Solo developer. Class 10 student. Building from Nepal 🇳🇵 — one phone, zero laptops.">
+<meta property="og:type" content="website">
+<!-- add og:image once you have a banner screenshot -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%87%B3%F0%9F%87%B5%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#0a0f0d;
+  --bg-elev:#111a15;
+  --bg-elev-2:#17221b;
+  --green:#3ef2a0;
+  --green-dim:#1f8f5c;
+  --cyan:#67e8f9;
+  --amber:#ffb454;
+  --red:#ff6b6b;
+  --text:#e3fbea;
+  --text-dim:#71917f;
+  --border:rgba(62,242,160,.15);
+  --font-display:'Space Grotesk',ui-sans-serif,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace;
+  --font-body:'Inter',ui-sans-serif,sans-serif;
+  --nav-h:64px;
+}
+
+/* ============ RESET ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--font-body);line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font:inherit;background:none;border:none;color:inherit}
+section{position:relative;padding:7rem 1.5rem;max-width:1180px;margin:0 auto}
+h1,h2,h3{font-family:var(--font-display);letter-spacing:-.01em}
+::selection{background:var(--green);color:#04120a}
+
+/* focus visibility */
+a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+
+/* ============ CURSOR (fine pointers only) ============ */
+@media (hover:hover) and (pointer:fine){
+  body{cursor:none}
+  a,button,.tilt{cursor:none}
+}
+.cursor-dot{position:fixed;top:0;left:0;width:6px;height:6px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);will-change:transform}
+.cursor-ring{position:fixed;top:0;left:0;width:30px;height:30px;border:1px solid var(--green);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s ease,height .2s ease,border-color .2s ease,background-color .2s ease;will-change:transform}
+.cursor-ring.is-hover{width:54px;height:54px;background:rgba(62,242,160,.08);border-color:var(--cyan)}
+@media (hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
+
+/* ============ BACKGROUND LAYERS ============ */
+#bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-4;opacity:.35;filter:saturate(1.1)}
+.bg-overlay{position:fixed;inset:0;z-index:-3;background:
+  radial-gradient(ellipse 80% 50% at 50% -10%, rgba(62,242,160,.10), transparent 60%),
+  linear-gradient(180deg, rgba(10,15,13,.92), rgba(10,15,13,.97) 40%, var(--bg) 100%)}
+.bg-scan{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.05;
+  background:repeating-linear-gradient(0deg,#000 0px,#000 1px,transparent 1px,transparent 3px)}
+#particles{position:fixed;inset:0;z-index:-1;pointer-events:none}
+
+/* ============ PRELOADER ============ */
+#preloader{position:fixed;inset:0;z-index:10000;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s ease}
+#preloader.done{opacity:0;visibility:hidden;pointer-events:none}
+.boot-box{width:min(520px,86vw);font-family:var(--font-mono);font-size:.85rem}
+.boot-lines{min-height:9.6em;color:var(--text-dim)}
+.boot-lines .ok{color:var(--green)}
+.boot-lines .flag{color:var(--cyan)}
+.boot-line{opacity:0;animation:bootIn .35s ease forwards}
+@keyframes bootIn{to{opacity:1}}
+.boot-bar-track{margin-top:1rem;height:3px;background:var(--bg-elev-2);border-radius:2px;overflow:hidden}
+.boot-bar-fill{height:100%;width:0%;background:var(--green);transition:width 1.6s ease}
+.boot-caret{display:inline-block;width:8px;height:1em;background:var(--green);vertical-align:-2px;animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ============ STATUS BAR (signature element) ============ */
+#statusbar{position:fixed;left:0;right:0;bottom:0;height:34px;z-index:90;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:0 .9rem;background:rgba(17,26,21,.85);backdrop-filter:blur(10px);
+  border-top:1px solid var(--border);font-family:var(--font-mono);font-size:.72rem;color:var(--text-dim)}
+#statusbar .sb-left{display:flex;align-items:center;gap:.5rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#statusbar .sb-right{display:flex;align-items:center;gap:.9rem;white-space:nowrap}
+.sb-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.sb-btn{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;color:var(--text-dim);transition:color .2s ease,transform .2s ease}
+.sb-btn:hover{color:var(--green);transform:scale(1.15)}
+.sb-btn svg{width:14px;height:14px}
+
+/* ============ NAV ============ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 1.5rem;background:rgba(10,15,13,.55);backdrop-filter:blur(12px);
+  border-bottom:1px solid transparent;transition:border-color .3s ease,background-color .3s ease}
+nav.scrolled{border-bottom-color:var(--border);background:rgba(10,15,13,.85)}
+.logo{font-family:var(--font-mono);font-weight:700;font-size:1rem;color:var(--text);display:flex;align-items:center;gap:.4rem}
+.logo .blip{color:var(--green)}
+#nav-menu{display:flex;align-items:center;gap:2rem}
+.nav-links{display:flex;gap:1.8rem;font-family:var(--font-mono);font-size:.85rem}
+.nav-links a{position:relative;color:var(--text-dim);transition:color .2s ease;padding:.3rem 0}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;width:100%;height:1px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.nav-links a:hover{color:var(--green)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;z-index:101}
+.nav-toggle span{width:100%;height:2px;background:var(--text);transition:transform .3s ease,opacity .3s ease}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ============ SHARED: labels, reveal, cards, buttons ============ */
+.eyebrow{display:flex;align-items:center;gap:.6rem;font-family:var(--font-mono);color:var(--cyan);font-size:.85rem;margin-bottom:1rem}
+.eyebrow::before{content:'$';color:var(--green)}
+.section-title{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:2.5rem;font-weight:600}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in-view{opacity:1;transform:none}
+.stagger .reveal:nth-child(1){transition-delay:.03s}
+.stagger .reveal:nth-child(2){transition-delay:.1s}
+.stagger .reveal:nth-child(3){transition-delay:.17s}
+.stagger .reveal:nth-child(4){transition-delay:.24s}
+.stagger .reveal:nth-child(5){transition-delay:.31s}
+.stagger .reveal:nth-child(6){transition-delay:.38s}
+
+.card{background:linear-gradient(180deg,var(--bg-elev),var(--bg-elev-2));border:1px solid var(--border);border-radius:14px;transform-style:preserve-3d;transition:transform .12s ease,border-color .3s ease,box-shadow .3s ease}
+.card:hover{border-color:rgba(62,242,160,.4);box-shadow:0 20px 40px -20px rgba(62,242,160,.25)}
+
+.btn{position:relative;display:inline-flex;align-items:center;gap:.55rem;padding:.85rem 1.7rem;font-family:var(--font-mono);font-weight:500;font-size:.9rem;border-radius:8px;border:1px solid var(--green);background:var(--green);color:#04120a;box-shadow:0 4px 0 var(--green-dim),0 10px 24px rgba(62,242,160,.22);transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--green-dim),0 16px 30px rgba(62,242,160,.3)}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--green-dim),0 4px 10px rgba(62,242,160,.22)}
+.btn.secondary{background:transparent;color:var(--green);box-shadow:0 4px 0 rgba(62,242,160,.25),0 10px 20px rgba(62,242,160,.06)}
+.btn.secondary:hover{transform:translateY(-2px);background:rgba(62,242,160,.06)}
+
+/* floating util */
+.float{animation:floaty 5s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* line-draw icons */
+.icon-line{width:30px;height:30px;color:var(--green)}
+.icon-line *{stroke-dasharray:300;stroke-dashoffset:300;transition:stroke-dashoffset 1.2s ease}
+.reveal.in-view .icon-line *{stroke-dashoffset:0}
+
+/* ============ HERO ============ */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:calc(var(--nav-h) + 2rem)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;width:100%}
+.hero-name{font-size:clamp(2.6rem,7.5vw,4.6rem);font-weight:700;line-height:1.05;margin:.3rem 0 1rem}
+.hero-name span{color:var(--green)}
+.role-line{font-family:var(--font-mono);font-size:clamp(1.05rem,2.6vw,1.35rem);color:var(--cyan);min-height:1.6em}
+.role-line .caret{display:inline-block;width:9px;height:1.1em;background:var(--cyan);vertical-align:-3px;margin-left:2px;animation:blink 1s step-end infinite}
+.hero-sub{max-width:46ch;color:var(--text-dim);margin:1.3rem 0 2.2rem;font-size:1.02rem}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-visual{position:relative;display:flex;justify-content:center}
+.float-icon{position:absolute;color:var(--text-dim);opacity:.5}
+
+.whoami{width:min(360px,100%);font-family:var(--font-mono);font-size:.82rem;overflow:hidden}
+.whoami-bar{display:flex;align-items:center;gap:.4rem;padding:.7rem .9rem;border-bottom:1px solid var(--border);background:rgba(0,0,0,.15)}
+.whoami-bar .dot{width:9px;height:9px;border-radius:50%}
+.whoami-bar .dot.r{background:#ff5f57}.whoami-bar .dot.y{background:#febc2e}.whoami-bar .dot.g{background:#28c840}
+.whoami-bar span{margin-left:.4rem;color:var(--text-dim)}
+.whoami-body{padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.55rem}
+.whoami-row{display:flex;justify-content:space-between;gap:1rem}
+.whoami-row .k{color:var(--text-dim)}
+.whoami-row .v{color:var(--text);text-align:right}
+.whoami-row .v.on{color:var(--green);display:flex;align-items:center;gap:.4rem}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s ease-in-out infinite}
+
+.scroll-hint{position:absolute;left:50%;bottom:2.2rem;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--text-dim);font-family:var(--font-mono);font-size:.68rem}
+.scroll-hint .chev{animation:chevBounce 1.6s ease-in-out infinite}
+@keyframes chevBounce{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(6px);opacity:1}}
+
+/* ============ ABOUT ============ */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start}
+.about-text p{color:var(--text-dim);font-size:1.05rem;margin-bottom:1.2rem;max-width:60ch}
+.about-text strong{color:var(--text);font-weight:600}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat-card{padding:1.4rem}
+.stat-num{font-family:var(--font-display);font-size:2.1rem;font-weight:700;color:var(--green)}
+.stat-label{font-family:var(--font-mono);font-size:.75rem;color:var(--text-dim);margin-top:.3rem}
+
+/* ============ FACTS TERMINAL ============ */
+.facts-window{font-family:var(--font-mono);font-size:.88rem;max-width:640px}
+.facts-body{padding:1.4rem 1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.facts-cmd{color:var(--text-dim);margin-bottom:.6rem}
+.facts-cmd .p{color:var(--green)}
+.fact-row .k{color:var(--cyan)}
+.fact-row .eq{color:var(--text-dim)}
+.fact-row .v{color:var(--text)}
+.fact-row .v.null{color:var(--red)}
+.fact-row .v.num{color:var(--amber)}
+.fact-row .cmt{color:var(--text-dim)}
+
+/* ============ SKILLS ============ */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem}
+.skill-card{padding:1.6rem 1rem;display:flex;flex-direction:column;align-items:center;gap:.7rem;text-align:center}
+.skill-card .name{font-family:var(--font-mono);font-size:.82rem;color:var(--text-dim)}
+
+/* ============ PROJECTS ============ */
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem}
+.project-card{padding:1.8rem;display:flex;flex-direction:column;gap:1rem;min-height:230px}
+.project-card h3{font-size:1.2rem}
+.project-card p{color:var(--text-dim);font-size:.92rem;flex:1}
+.tag-row{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{font-family:var(--font-mono);font-size:.68rem;padding:.3rem .6rem;border:1px solid var(--border);border-radius:100px;color:var(--cyan)}
+.project-link{font-family:var(--font-mono);font-size:.82rem;color:var(--green);display:inline-flex;align-items:center;gap:.4rem}
+.project-link svg{width:14px;height:14px;transition:transform .2s ease}
+.project-link:hover svg{transform:translate(3px,-3px)}
+
+
+/* ============ STORE BANNER ============ */
+#store{padding-top:2rem;padding-bottom:2rem}
+.store-banner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;padding:2rem 2.2rem;border-color:rgba(62,242,160,.35);background:linear-gradient(135deg,rgba(62,242,160,.10),var(--bg-elev) 55%,var(--bg-elev-2))}
+.store-banner h2{font-size:clamp(1.3rem,3.2vw,1.9rem);font-weight:700;margin:.2rem 0 .5rem}
+.store-banner h2 span{color:var(--green)}
+.store-banner p{color:var(--text-dim);max-width:52ch}
+.store-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.75rem;color:var(--green)}
+
+/* ============ CONTACT ============ */
+.contact-inner{text-align:center;max-width:560px;margin:0 auto}
+.contact-inner p{color:var(--text-dim);margin:1rem 0 2.2rem}
+.social-row{display:flex;justify-content:center;gap:1.1rem;flex-wrap:wrap}
+.social-btn{width:56px;height:56px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);transition:transform .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease}
+.social-btn svg{width:22px;height:22px}
+.social-btn:hover{transform:translateY(-6px) rotate(-6deg);color:var(--green);border-color:var(--green);box-shadow:0 14px 24px -10px rgba(62,242,160,.4)}
+
+/* ============ FOOTER ============ */
+footer{padding:2.4rem 1.5rem 4.5rem;text-align:center;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:.78rem;color:var(--text-dim)}
+footer .line2{margin-top:.4rem;opacity:.7}
+.to-top{display:inline-block;margin-top:1rem;color:var(--green)}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:860px){
+  .hero-grid,.about-grid{grid-template-columns:1fr}
+  .hero-visual{margin-top:1rem}
+  .nav-links{position:fixed;top:0;right:0;height:100vh;width:min(72vw,300px);flex-direction:column;justify-content:center;gap:2.2rem;background:rgba(10,15,13,.97);backdrop-filter:blur(14px);border-left:1px solid var(--border);transform:translateX(100%);transition:transform .35s ease;font-size:1rem}
+  .nav-links.open{transform:translateX(0)}
+  .nav-toggle{display:flex}
+  #statusbar .sb-left{display:none}
+  section{padding:5rem 1.2rem}
+}
+@media (max-width:480px){
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .whoami{font-size:.76rem}
+  .social-btn{width:50px;height:50px}
+}
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ PRELOADER ============ -->
+<div id="preloader">
+  <div class="boot-box">
+    <div class="boot-lines" id="boot-lines"></div>
+    <div class="boot-bar-track"><div class="boot-bar-fill" id="boot-bar"></div></div>
+  </div>
+</div>
+
+<!-- ============ CURSOR ============ -->
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- ============ BACKGROUND ============ -->
+<video id="bg-video" autoplay muted loop playsinline>
+  <!-- 👇 replace with your ImageKit video URL, e.g. https://ik.imagekit.io/yourid/bg-loop.mp4 -->
+  <source src="https://ik.imagekit.io/6wyza9jsk/VID_20260324_190429_643.mp4" type="video/mp4">
+</video>
+<div class="bg-overlay"></div>
+<div class="bg-scan"></div>
+<canvas id="particles"></canvas>
+
+<!-- ============ NAV ============ -->
+<nav id="navbar">
+  <a href="#hero" class="logo"><span class="blip">&gt;</span> SRT X CHEATS <span aria-hidden="true">🇳🇵</span></a>
+  <div id="nav-menu">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">./about</a></li>
+      <li><a href="#skills">./skills</a></li>
+      <li><a href="#projects">./work</a></li>
+      <li><a href="#contact">./contact</a></li>
+    </ul>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">samrat@srtxcheats:~ whoami</div>
+        <h1 class="hero-name">Samrat <span>Subedi</span></h1>
+        <div class="role-line">&gt; <span id="role-text"></span><span class="caret"></span></div>
+        <p class="hero-sub">16 y/o solo developer building <strong style="color:var(--text)">SRT X CHEATS</strong> from Nepal 🇳🇵 — one phone, zero laptops, way too many browser tabs.</p>
+        <div class="hero-ctas">
+          <a href="https://www.srtxcheats.com" target="_blank" rel="noopener noreferrer" class="btn">Go to Store</a>
+          <a href="#projects" class="btn secondary">View Work</a>
+          <a href="#contact" class="btn secondary">Let's Connect</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <svg class="float-icon float" style="width:34px;top:-10px;left:5%;animation-delay:.2s" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="40" height="32" rx="4"/><path d="M12 20l6 6-6 6"/><line x1="24" y1="32" x2="34" y2="32"/></svg>
+        <svg class="float-icon float" style="width:26px;bottom:0;right:2%;animation-delay:1.4s" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 12L6 24l10 12"/><path d="M32 12l10 12-10 12"/></svg>
+        <svg class="float-icon float" style="width:22px;top:40%;right:-4%;animation-delay:.8s" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="6"/><path d="M24 4v6M24 38v6M44 24h-6M10 24H4"/></svg>
+
+        <div class="whoami card tilt">
+          <div class="whoami-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <span>whoami.sh</span>
+          </div>
+          <div class="whoami-body">
+            <div class="whoami-row"><span class="k">name</span><span class="v">Samrat Subedi</span></div>
+            <div class="whoami-row"><span class="k">age</span><span class="v">16</span></div>
+            <div class="whoami-row"><span class="k">class</span><span class="v">10</span></div>
+            <div class="whoami-row"><span class="k">location</span><span class="v">Nepal 🇳🇵</span></div>
+            <div class="whoami-row"><span class="k">role</span><span class="v">dev / gamer / seller</span></div>
+            <div class="whoami-row"><span class="k">team</span><span class="v">SRT X CHEATS</span></div>
+            <div class="whoami-row"><span class="k">status</span><span class="v on"><span class="status-dot"></span>online</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+  </section>
+
+  <!-- ============ STORE BANNER ============ -->
+  <section id="store">
+    <div class="store-banner card reveal">
+      <div>
+        <div class="store-badge"><span class="status-dot"></span>store online</div>
+        <h2>SRT X CHEATS <span>Nepal</span></h2>
+        <p>Nepal's most popular and trusted panel seller. Check out the store for panels and subscription keys.</p>
+      </div>
+      <a href="https://www.srtxcheats.com" target="_blank" rel="noopener noreferrer" class="btn">Go to Store
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="eyebrow">cat about.md</div>
+    <h2 class="section-title reveal">A bit about me</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm Samrat — a <strong>Class 10 student in Nepal</strong> who happens to run a full software operation from a phone screen. No laptop, no team, no shortcuts: just <strong>Termux</strong>, <strong>GitHub</strong>, and way too many browser tabs.</p>
+        <p>I build storefronts, bots, and tools under the <strong>SRT X CHEATS</strong> banner — handling everything from backend security to UI polish myself. Still a student first, still figuring the rest out as I go.</p>
+      </div>
+      <div class="stat-grid stagger">
+        <div class="stat-card card reveal tilt"><div class="stat-num">16</div><div class="stat-label">years old</div></div>
+        <div class="stat-card card reveal tilt"><div class="stat-num">10</div><div class="stat-label">class / grade</div></div>
+        <div class="stat-card card reveal tilt"><div class="stat-num">1</div><div class="stat-label">team member (it's me)</div></div>
+        <div class="stat-card card reveal tilt"><div class="stat-num">🇳🇵</div><div class="stat-label">based in Nepal</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FUN FACTS TERMINAL ============ -->
+  <section id="facts">
+    <div class="eyebrow">./stats.sh --personal</div>
+    <div class="facts-window card reveal" style="max-width:640px">
+      <div class="whoami-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span>stats.sh</span>
+      </div>
+      <div class="facts-body">
+        <div class="facts-cmd"><span class="p">$</span> ./stats.sh --personal</div>
+        <div class="fact-row"><span class="k">TEAM_SIZE</span> <span class="eq">=</span> <span class="v num">1</span></div>
+        <div class="fact-row"><span class="k">CO_FOUNDERS</span> <span class="eq">=</span> <span class="v">none</span> <span class="cmt">// one-man army 🥲</span></div>
+        <div class="fact-row"><span class="k">BEST_FRIEND</span> <span class="eq">=</span> <span class="v null">null</span></div>
+        <div class="fact-row"><span class="k">GIRLFRIEND</span> <span class="eq">=</span> <span class="v null">null</span></div>
+        <div class="fact-row"><span class="k">EX_COUNT</span> <span class="eq">=</span> <span class="v num">7</span> <span class="cmt">// long story 😆</span></div>
+        <div class="fact-row"><span class="k">STATUS</span> <span class="eq">=</span> <span class="v">single.exe running</span></div>
+        <div class="fact-row"><span class="k">FOCUS</span> <span class="eq">=</span> <span class="v">shipping code &gt; catching feelings</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills">
+    <div class="eyebrow">ls -la ./stack</div>
+    <h2 class="section-title reveal">Tools of the trade</h2>
+    <div class="skills-grid stagger">
+      <div class="skill-card card reveal tilt">
+        <svg class="icon-line" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="40" height="32" rx="4"/><path d="M12 20l6 6-6 6"/><line x1="24" y1="32" x2="34" y2="32"/></svg>
+        <span class="name">Termux / Linux</span>
+      </div>
+      <div class="skill-card card reveal tilt">
+        <svg class="icon-line" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="4"/><circle cx="12" cy="38" r="4"/><circle cx="34" cy="24" r="4"/><path d="M12 14v20"/><path d="M12 24c0-6 6-6 18-6"/></svg>
+        <span class="name">GitHub</span>
+      </div>
+      <div class="skill-card card reveal tilt">
+        <svg class="icon-line" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 12L6 24l10 12"/><path d="M32 12l10 12-10 12"/></svg>
+        <span class="name">JavaScript</span>
+      </div>
+      <div class="skill-card card reveal tilt">
+        <svg class="icon-line" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="24" cy="10" rx="16" ry="6"/><path d="M8 10v12c0 3.3 7.2 6 16 6s16-2.7 16-6V10"/><path d="M8 22v12c0 3.3 7.2 6 16 6s16-2.7 16-6V22"/></svg>
+        <span class="name">Firebase</span>
+      </div>
+      <div class="skill-card card reveal tilt">
+        <svg class="icon-line" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 34a8 8 0 01-1-15.9A10 10 0 0132 14a7 7 0 016 12"/><path d="M14 34h22a6 6 0 000-12"/></svg>
+        <span class="name">Cloudflare Workers</span>
+      </div>
+      <div class="skill-card card reveal tilt">
+        <svg class="icon-line" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="6"/><path d="M24 4v6M24 38v6M44 24h-6M10 24H4M37.5 10.5l-4.2 4.2M14.7 33.3l-4.2 4.2M37.5 37.5l-4.2-4.2M14.7 14.7l-4.2-4.2"/></svg>
+        <span class="name">Render</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="eyebrow">cat projects.md</div>
+    <h2 class="section-title reveal">Things I've shipped</h2>
+    <div class="project-grid stagger">
+      <div class="project-card card reveal tilt">
+        <h3>SRT X CHEATS — Storefront</h3>
+        <p>Full e-commerce storefront for digital subscription key sales, with a hardened Firestore backend, an admin dashboard, and real-time Telegram order alerts.</p>
+        <div class="tag-row"><span class="tag">Firebase</span><span class="tag">Cloudflare Workers</span><span class="tag">Firestore</span></div>
+      </div>
+      <div class="project-card card reveal tilt">
+        <h3>Video Hub</h3>
+        <p>An animated video showcase with CRT / broadcast-style visuals and depth-layered, parallax cards.</p>
+        <div class="tag-row"><span class="tag">JavaScript</span><span class="tag">CSS Animation</span><span class="tag">Canvas</span></div>
+      </div>
+      <div class="project-card card reveal tilt">
+        <h3>Billing &amp; Receipts</h3>
+        <p>A lightweight billing and receipt generator built to run the business side of SRT X CHEATS.</p>
+        <div class="tag-row"><span class="tag">JavaScript</span><span class="tag">PDF Generation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="eyebrow" style="justify-content:center">./connect.sh</div>
+      <h2 class="section-title reveal">Let's talk shop</h2>
+      <p class="reveal">Got a project, a question, or just want to talk code? I'm usually one tab away.</p>
+<div class="social-row stagger">
+  <!-- YouTube -->
+  <a href="https://youtube.com/@srtxcheats?si=auQdXX6vbpUcyH7b" class="social-btn reveal" aria-label="YouTube">
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="6" y="12" width="36" height="24" rx="6" />
+      <polygon points="20,17 31,24 20,31" fill="currentColor" stroke="none" />
+    </svg>
+  </a>
+
+  <!-- TikTok -->
+  <a href="https://www.tiktok.com/@srtxseller?_r=1&_t=ZS-98Bl553XDRB" class="social-btn reveal" aria-label="TikTok">
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 34a7 7 0 1 1 7-7v-17a10 10 0 0 0 8 4" />
+    </svg>
+  </a>
+
+  <!-- Telegram -->
+  <a href="https://t.me/SRT_X_CHEATS" class="social-btn reveal" aria-label="Telegram">
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 22l36-14-9 34-12-10-7 6-2-11z" />
+      <path d="M42 8L15 27" />
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div><span id="year"></span> © SRT X CHEATS 🇳🇵 — all rights reserved</div>
+  <div class="line2">built entirely on a phone, one commit at a time.</div>
+  <a href="#hero" class="to-top">back to top ↑</a>
+</footer>
+
+<!-- ============ STATUS BAR ============ -->
+<div id="statusbar">
+  <div class="sb-left">
+    <span class="sb-dot"></span>
+    <span>samrat@srtxcheats</span>
+    <span>·</span>
+    <span>uptime <span id="sb-uptime">00:00:00</span></span>
+  </div>
+  <div class="sb-right">
+    <span id="sb-clock">00:00:00</span>
+    <button class="sb-btn" id="sfx-toggle" aria-label="Toggle sound effects" title="Sound effects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7"/></svg>
+    </button>
+    <button class="sb-btn" id="music-toggle" aria-label="Toggle background audio" title="Background audio">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+  /* ---------- PRELOADER ---------- */
+  async function boot(){
+    const linesEl = document.getElementById('boot-lines');
+    const bar = document.getElementById('boot-bar');
+    const lines = [
+      ['booting srt-x-cheats::os v2.6 ...', ''],
+      ['[ok] loading kernel modules', 'ok'],
+      ['[ok] mounting /home/samrat', 'ok'],
+      ['[ok] starting whoami.service', 'ok'],
+      ['[ok] network: nepal.local — connected 🇳🇵', 'flag'],
+      ['[ok] permissions: solo-dev (root)', 'ok'],
+      ['welcome, visitor_', '']
+    ];
+    requestAnimationFrame(()=>{ bar.style.width = '100%'; });
+    const perLine = reduceMotion ? 20 : 190;
+    for(const [text, cls] of lines){
+      const div = document.createElement('div');
+      div.className = 'boot-line' + (cls ? ' ' + cls : '');
+      div.textContent = text;
+      linesEl.appendChild(div);
+      await sleep(perLine);
+    }
+    await sleep(reduceMotion ? 50 : 450);
+    document.getElementById('preloader').classList.add('done');
+  }
+  boot();
+
+  /* ---------- CUSTOM CURSOR ---------- */
+  if(finePointer && !reduceMotion){
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mx=innerWidth/2, my=innerHeight/2, rx=mx, ry=my;
+    addEventListener('mousemove', e=>{
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
+    });
+    (function loop(){
+      rx += (mx-rx)*0.15; ry += (my-ry)*0.15;
+      ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('a,button,.tilt').forEach(el=>{
+      el.addEventListener('mouseenter', ()=> ring.classList.add('is-hover'));
+      el.addEventListener('mouseleave', ()=> ring.classList.remove('is-hover'));
+    });
+  }
+
+  /* ---------- TYPEWRITER ---------- */
+  function typewriter(el, words, opts={}){
+    const typeSpeed = opts.typeSpeed || 70;
+    const eraseSpeed = opts.eraseSpeed || 35;
+    const pause = opts.pause || 1300;
+    if(reduceMotion){ el.textContent = words[0]; return; }
+    let wi=0, ci=0, deleting=false;
+    function tick(){
+      const word = words[wi];
+      if(!deleting){
+        ci++;
+        el.textContent = word.slice(0,ci);
+        if(ci === word.length){ deleting = true; return setTimeout(tick, pause); }
+        return setTimeout(tick, typeSpeed);
+      } else {
+        ci--;
+        el.textContent = word.slice(0,ci);
+        if(ci === 0){ deleting = false; wi = (wi+1) % words.length; return setTimeout(tick, 300); }
+        return setTimeout(tick, eraseSpeed);
+      }
+    }
+    tick();
+  }
+  typewriter(document.getElementById('role-text'), ['Student','Small Developer','Gamer','Seller']);
+
+  /* ---------- SCROLL REVEAL ---------- */
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+    });
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+  /* ---------- 3D TILT ---------- */
+  if(finePointer){
+    document.querySelectorAll('.tilt').forEach(el=>{
+      el.addEventListener('mousemove', e=>{
+        const r = el.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        const rotateX = ((y - r.height/2)/(r.height/2)) * -6;
+        const rotateY = ((x - r.width/2)/(r.width/2)) * 6;
+        el.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+      el.addEventListener('mouseleave', ()=>{ el.style.transform=''; });
+    });
+  }
+
+  /* ---------- NAV: scroll state, smooth scroll, mobile menu ---------- */
+  const navbar = document.getElementById('navbar');
+  addEventListener('scroll', ()=> navbar.classList.toggle('scrolled', scrollY > 20));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const id = a.getAttribute('href');
+      if(id.length > 1){
+        const target = document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          const top = target.getBoundingClientRect().top + scrollY - navbar.offsetHeight - 10;
+          scrollTo({top, behavior: reduceMotion ? 'auto' : 'smooth'});
+        }
+      }
+    });
+  });
+
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  navToggle.addEventListener('click', ()=>{
+    const open = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{
+    navLinks.classList.remove('open'); navToggle.classList.remove('open'); navToggle.setAttribute('aria-expanded','false');
+  }));
+
+  /* ---------- SOUND ---------- */
+  let audioCtx, sfxOn = true, musicOn = false;
+  const bgVideo = document.getElementById('bg-video');
+  function ensureAudio(){
+    try{
+      if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+      if(audioCtx.state === 'suspended') audioCtx.resume();
+    }catch(err){ /* audio unsupported, fail silently */ }
+  }
+  function blip(freq=520, dur=.06, type='sine', vol=.045){
+    if(!sfxOn || !audioCtx) return;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = type; osc.frequency.value = freq;
+    gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(.0001, audioCtx.currentTime + dur);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(); osc.stop(audioCtx.currentTime + dur);
+  }
+  document.querySelectorAll('.nav-links a,.btn,.social-btn,.project-link').forEach(el=>{
+    el.addEventListener('mouseenter', ()=>{ ensureAudio(); blip(640,.05,'sine',.035); });
+    el.addEventListener('click', ()=>{ ensureAudio(); blip(320,.08,'square',.045); });
+  });
+
+  const sfxBtn = document.getElementById('sfx-toggle');
+  sfxBtn.addEventListener('click', ()=>{
+    ensureAudio();
+    sfxOn = !sfxOn;
+    sfxBtn.style.color = sfxOn ? 'var(--green)' : 'var(--text-dim)';
+    if(sfxOn) blip(700,.06,'sine',.05);
+  });
+
+  const musicBtn = document.getElementById('music-toggle');
+  musicBtn.addEventListener('click', ()=>{
+    ensureAudio();
+    musicOn = !musicOn;
+    bgVideo.muted = !musicOn;
+    if(musicOn){ bgVideo.volume = .35; bgVideo.play().catch(()=>{}); }
+    musicBtn.style.color = musicOn ? 'var(--green)' : 'var(--text-dim)';
+  });
+
+  /* ---------- STATUS BAR CLOCK + UPTIME ---------- */
+  const clockEl = document.getElementById('sb-clock');
+  const upEl = document.getElementById('sb-uptime');
+  const startTime = Date.now();
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tickClock(){
+    const now = new Date();
+    clockEl.textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+    const s = Math.floor((Date.now()-startTime)/1000);
+    upEl.textContent = `${pad(Math.floor(s/3600))}:${pad(Math.floor(s%3600/60))}:${pad(s%60)}`;
+  }
+  tickClock();
+  setInterval(tickClock, 1000);
+
+  /* ---------- FOOTER YEAR ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- PARTICLES ---------- */
+  if(!reduceMotion){
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let w,h,particles;
+    function resize(){ w = canvas.width = innerWidth; h = canvas.height = innerHeight; }
+    resize();
+    addEventListener('resize', resize);
+    particles = Array.from({length:46}, ()=>({
+      x: Math.random()*w, y: Math.random()*h,
+      r: Math.random()*1.5+.4,
+      vy: Math.random()*.28+.05,
+      o: Math.random()*.5+.1
+    }));
+    (function tick(){
+      ctx.clearRect(0,0,w,h);
+      particles.forEach(p=>{
+        p.y -= p.vy;
+        if(p.y < -5){ p.y = h+5; p.x = Math.random()*w; }
+        ctx.globalAlpha = p.o;
+        ctx.fillStyle = '#3ef2a0';
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(tick);
+    })();
+  }
+})();
+</script>
+</body>
+</html>
